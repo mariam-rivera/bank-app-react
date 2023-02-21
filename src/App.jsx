@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter, Navigate, Route } from 'react-router-dom';
 import RouteNotFound from './routes/route-not-found';
 import {

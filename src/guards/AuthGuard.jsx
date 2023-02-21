@@ -9,7 +9,7 @@ const AuthGuard = () => {
       {sessionStore.message ? (
         <Outlet />
       ) : (
-        <Navigate replace to={PUBLIC_ROUTES.LOGIN} />
+        <Navigate replace to={PUBLIC_ROUTES.login} />
       )}
     </>
   );
