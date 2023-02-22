@@ -5,13 +5,13 @@ export const Card = ({ title, account, balance, cardImg }) => {
     <div className={`${styles.cardItem}`}>
       <div>
         <p>
-          {title} <span> {account}</span>
+          {title} <span>* {account}</span>
         </p>
         <img src={cardImg} className={`${styles.cardImg}`} />
       </div>
       <div className={`${styles.total}`}>
         <p className={`${styles.totalBalance}`}>$ {balance}</p>
-        <p>Balance</p>
+        <span className={`${styles.balanceSpan}`}>Balance</span>
       </div>
     </div>
   );

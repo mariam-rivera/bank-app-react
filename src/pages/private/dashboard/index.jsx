@@ -26,19 +26,25 @@ export const Dashboard = () => {
         <Task image={moreImg} title="More" />
       </div>
       {/* cards */}
-      <div className={`${styles.cards} sm:w-1/3 sm:ml-10`}>
+      <div className={`${styles.cards} sm:w-1/3 sm:ml-2`}>
         <h3 className={`${styles.cardsTitle}`}>Cards</h3>
         {/* card item */}
         <Card
           title="Debit card"
-          account="*2408"
+          account="2408"
           balance={125000}
           cardImg={cardImg}
         />
         <Card
           title="Credit card"
-          account="*9008"
+          account="9008"
           balance={9000}
+          cardImg={cardImg}
+        />
+        <Card
+          title="Debit card"
+          account="7808"
+          balance={3400}
           cardImg={cardImg}
         />
       </div>

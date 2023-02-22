@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "crypto-js": "^4.1.1",
+    "firebase": "^9.0.0-2021720181311",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
+    "reactfire": "^4.0.0-rc.2",
     "tailwindcss-classnames": "^3.0.7",
     "zustand": "^4.3.3"
   },

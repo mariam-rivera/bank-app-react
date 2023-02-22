@@ -31,4 +31,4 @@ export const itemSpan = classnames(
   margin('mt-2')
 );
 
-export const itemImg = classnames(width('w-[40px]'), height('h-[40px]'));
+export const itemImg = classnames(width('w-[30px]'), height('h-[30px]'));

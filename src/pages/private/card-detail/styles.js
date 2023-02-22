@@ -1,3 +1,4 @@
+import { alignSelf } from 'tailwindcss-classnames';
 import classnames, {
   alignItems,
   borderRadius,
@@ -24,36 +25,21 @@ export const dashboard = classnames(
   backgroundColor('bg-slate-900')
 );
 
-export const menu = classnames(
+export const primaryCard = classnames(
+  backgroundColor('bg-indigo-900'),
+  borderRadius('rounded'),
   display('flex'),
-  justifyContent('justify-between'),
   alignItems('items-center'),
+  justifyContent('justify-between'),
   width('w-full'),
-  height('h-[40px]')
-);
-
-export const menuTitle = classnames(
+  height('h-[150px]'),
+  padding('px-2', 'py-5'),
   textColor('text-white'),
-  fontSize('text-md'),
-  margin('ml-2')
-);
-
-export const menuImg = classnames(
-  width('w-[30px]'),
-  height('h-[30px]'),
+  fontSize('text-xs'),
   cursor('cursor-pointer')
 );
 
-export const tasks = classnames(
-  display('flex'),
-  alignItems('items-center'),
-  justifyContent('justify-around'),
-  width('w-full'),
-  height('h-[100px]'),
-  margin('mt-2')
-);
-
-export const cards = classnames(
+export const transactions = classnames(
   display('flex'),
   flexDirection('flex-col'),
   margin('mt-5'),
@@ -64,9 +50,24 @@ export const cards = classnames(
   backgroundColor('bg-indigo-900')
 );
 
-export const cardsTitle = classnames(
+export const transactionsTitle = classnames(
   fontSize('text-sm'),
   margin('mb-2'),
   textColor('text-white'),
   fontWeight('font-normal')
+);
+
+export const backHome = classnames(
+  display('flex'),
+  alignItems('items-center'),
+  justifyContent('justify-center')
+);
+
+export const seeMore = classnames(
+  fontSize('text-sm'),
+  textColor('text-indigo-300'),
+  fontWeight('font-bold'),
+  alignSelf('self-center'),
+  margin('mt-3'),
+  cursor('cursor-pointer')
 );

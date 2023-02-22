@@ -1,10 +1,8 @@
 import * as styles from './styles';
 
-export const Button = ({ handleInitSession, title }) => {
+export const Button = ({ onClick, title }) => {
   return (
-    <button
-      className={`${styles.button} sm:w-[350px]`}
-      onClick={handleInitSession}>
+    <button className={`${styles.button} sm:w-[350px]`} onClick={onClick}>
       {title}
     </button>
   );
