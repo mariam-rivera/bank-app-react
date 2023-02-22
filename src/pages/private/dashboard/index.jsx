@@ -4,100 +4,43 @@ import opportunitiesImg from '../../../assets/bank-images/opportunities.png';
 import withdrawImg from '../../../assets/bank-images/money-withdraw.png';
 import moreImg from '../../../assets/bank-images/more.png';
 import cardImg from '../../../assets/bank-images/card.png';
-
+import { Task } from '../../../atoms/task/Task';
+import { Menu } from '../../../atoms/menu/Menu';
+import { Card } from '../../../atoms/card/Card';
 import * as styles from './styles';
 
 export const Dashboard = () => {
   return (
-    <div className={`${styles.dashboard} sm:justify-around sm:py-5 sm:px-10`}>
+    <div className={`${styles.dashboard} sm:justify-between sm:py-8 sm:px-10`}>
       {/* top */}
       <div className={`${styles.menu}`}>
         <p className={`${styles.menuTitle} sm:text-lg`}>Hi, Mariam!</p>
         <img src={menuImg} className={`${styles.menuImg} sm:hidden`} />
-        <ul className={`${styles.menuItems} hidden sm:flex`}>
-          <li className={styles.menuItem}>Profile</li>
-          <li className={styles.menuItem}>Settings</li>
-          <li className={styles.menuItem}>Promotions</li>
-          <li className={styles.menuItem}>Clarifications</li>
-          <li className={styles.menuItem}>About</li>
-          <li className={styles.menuItem}>Logout</li>
-        </ul>
+        <Menu />
       </div>
       {/* tasks */}
-      <div className={`${styles.tasks} sm:h-[250px] sm:mt-8 sm:justify-around`}>
-        <div className={`${styles.itemTasks} sm:w-[250px] sm:h-[130px]`}>
-          <img
-            src={transferImg}
-            className={`${styles.itemImg} sm:w-[60px] sm:h-[60px]`}
-          />
-          <span className={`${styles.itemSpan} sm:text-[14px]`}>Transfer</span>
-        </div>
-        <div className={`${styles.itemTasks} sm:w-[250px] sm:h-[130px]`}>
-          <img
-            src={opportunitiesImg}
-            className={`${styles.itemImg} sm:w-[60px] sm:h-[60px]`}
-          />
-          <span className={`${styles.itemSpan} sm:text-[14px]`}>
-            Opportunities
-          </span>
-        </div>
-        <div className={`${styles.itemTasks} sm:w-[250px] sm:h-[130px]`}>
-          <img
-            src={withdrawImg}
-            className={`${styles.itemImg} sm:w-[60px] sm:h-[60px]`}
-          />
-          <span className={`${styles.itemSpan} sm:text-[14px]`}>Withdraw</span>
-        </div>
-        <div className={`${styles.itemTasks} sm:w-[250px] sm:h-[130px]`}>
-          <img
-            src={moreImg}
-            className={`${styles.itemImg} sm:w-[60px] sm:h-[60px]`}
-          />
-          <span className={`${styles.itemSpan} sm:text-[14px]`}>More</span>
-        </div>
-      </div>
-      {/* primary card */}
-      <div className={`${styles.primaryCard}`}>
-        <div>
-          <p>Total</p>
-          <p>Account *2408</p>
-        </div>
-        <div className={`${styles.total}`}>
-          <p className={`${styles.totalBalance}`}>$125,000</p>
-          <p>Balance</p>
-        </div>
+      <div className={`${styles.tasks} sm:h-[150px] sm:mt-8`}>
+        <Task image={transferImg} title="Transfer" />
+        <Task image={opportunitiesImg} title="Opportunities" />
+        <Task image={withdrawImg} title="Withdraw" />
+        <Task image={moreImg} title="More" />
       </div>
       {/* cards */}
-      <div className={`${styles.cards}`}>
+      <div className={`${styles.cards} sm:w-1/3 sm:ml-10`}>
         <h3 className={`${styles.cardsTitle}`}>Cards</h3>
         {/* card item */}
-        <div className={`${styles.cardItem}`}>
-          <div>
-            <p>
-              Debit card <span> *2408</span>
-            </p>
-            <img src={cardImg} className={`${styles.cardImg}`} />
-          </div>
-          <div className={`${styles.total}`}>
-            <p className={`${styles.totalBalance}`}>$125,000</p>
-            <p>Balance</p>
-          </div>
-        </div>
-        {/* card item */}
-        <div className={`${styles.cardItem}`}>
-          <div>
-            <p>
-              Credit card <span> *2409</span>
-            </p>
-            <img src={cardImg} className={`${styles.cardImg}`} />
-          </div>
-          <div className={`${styles.total}`}>
-            <p className={`${styles.totalBalance}`}>$12,680</p>
-            <p>Used balance</p>
-            <p>$3, 320</p>
-            <p>Balance</p>
-          </div>
-        </div>
+        <Card
+          title="Debit card"
+          account="*2408"
+          balance={125000}
+          cardImg={cardImg}
+        />
+        <Card
+          title="Credit card"
+          account="*9008"
+          balance={9000}
+          cardImg={cardImg}
+        />
       </div>
     </div>
   );

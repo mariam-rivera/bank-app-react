@@ -3,7 +3,7 @@ import { PRIVATE_ROUTES } from '../../constants/routes/routes-constants';
 import RouteNotFound from '../../routes/route-not-found';
 import { About } from './about';
 import { Dashboard } from './dashboard';
-import { ProductDetail } from './product-detail';
+import { CardDetail } from './card-detail/index';
 
 export const PrivateRoutes = () => {
   return (
@@ -13,8 +13,8 @@ export const PrivateRoutes = () => {
         <Route path={PRIVATE_ROUTES.dashboard} element={<Dashboard />} />
         <Route path={PRIVATE_ROUTES.about} element={<About />} />
         <Route
-          path={`${PRIVATE_ROUTES.productDetail}${PRIVATE_ROUTES.slug}`}
-          element={<ProductDetail />}
+          path={`${PRIVATE_ROUTES.cardDetail}${PRIVATE_ROUTES.slug}`}
+          element={<CardDetail />}
         />
       </RouteNotFound>
     </>

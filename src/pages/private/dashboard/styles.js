@@ -1,4 +1,3 @@
-import { cursor, fontWeight } from 'tailwindcss-classnames';
 import classnames, {
   alignItems,
   borderRadius,
@@ -12,6 +11,8 @@ import classnames, {
   width,
   backgroundColor,
   padding,
+  cursor,
+  fontWeight,
 } from '../../../../tailwind-classnames';
 
 export const dashboard = classnames(
@@ -33,21 +34,8 @@ export const menu = classnames(
 
 export const menuTitle = classnames(
   textColor('text-white'),
-  fontSize('text-sm')
-);
-
-export const menuItems = classnames(
-  display('flex'),
-  justifyContent('justify-between'),
-  alignItems('items-center'),
-  width('w-[750px]'),
-  height('h-[45px]')
-);
-
-export const menuItem = classnames(
-  cursor('cursor-pointer'),
-  fontSize('text-sm'),
-  textColor('text-white')
+  fontSize('text-md'),
+  margin('ml-2')
 );
 
 export const menuImg = classnames(
@@ -65,26 +53,6 @@ export const tasks = classnames(
   margin('mt-2')
 );
 
-export const itemTasks = classnames(
-  display('flex'),
-  flexDirection('flex-col'),
-  alignItems('items-center'),
-  justifyContent('justify-center'),
-  width('w-[70px]'),
-  height('h-[70px]'),
-  borderRadius('rounded'),
-  backgroundColor('bg-indigo-900'),
-  cursor('cursor-pointer')
-);
-
-export const itemSpan = classnames(
-  fontSize('text-[9px]'),
-  textColor('text-white'),
-  margin('mt-2')
-);
-
-export const itemImg = classnames(width('w-[40px]'), height('h-[40px]'));
-
 export const primaryCard = classnames(
   backgroundColor('bg-indigo-900'),
   borderRadius('rounded'),
@@ -99,14 +67,6 @@ export const primaryCard = classnames(
   fontSize('text-xs'),
   cursor('cursor-pointer')
 );
-
-export const total = classnames(
-  display('flex'),
-  flexDirection('flex-col'),
-  alignItems('items-end')
-);
-
-export const totalBalance = classnames(fontSize('text-2xl'));
 
 export const cards = classnames(
   display('flex'),
@@ -142,3 +102,11 @@ export const cardItem = classnames(
 );
 
 export const cardImg = classnames(width('w-[80px]'), height('h-[80px]'));
+
+export const total = classnames(
+  display('flex'),
+  flexDirection('flex-col'),
+  alignItems('items-end')
+);
+
+export const totalBalance = classnames(fontSize('text-2xl'));

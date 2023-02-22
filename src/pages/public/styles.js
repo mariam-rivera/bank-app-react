@@ -72,17 +72,6 @@ import classnames, {
     padding('p-2'),
   )
 
-  export const field = classnames(
-    padding('p-2', 'pl-4'),
-    width('w-[270px]'),
-    height('h-[45px]'),
-    borderRadius('rounded'),
-    fontSize('text-sm'),
-    fontWeight('font-normal'),
-    backgroundColor('bg-white'),
-    textColor('text-slate-800'),
-  )
-
   export const labelField = classnames(
     fontSize('text-sm'),
     fontWeight('font-normal'),
@@ -90,18 +79,6 @@ import classnames, {
     margin('mb-2')
   )
   
-  export const button = classnames(
-    width('w-[270px]'),
-    height('h-[45px]'),
-    margin('mt-8', 'mb-5'),
-    padding('p-2'),
-    borderRadius('rounded'),
-    fontSize('text-sm'),
-    fontWeight('font-bold'),
-    backgroundColor('bg-amber-500'),
-    textColor('text-white'),
-  )
-
   export const forgotPassword = classnames(
     fontSize('text-xs'),
     fontWeight('font-normal'),
