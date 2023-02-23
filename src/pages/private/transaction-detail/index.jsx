@@ -2,12 +2,26 @@ import { Button } from '../../../atoms/button/Button';
 import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
 import unknownImg from '../../../assets/bank-images/unknown.png';
 import shareImg from '../../../assets/bank-images/share.png';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import * as styles from './styles';
 
-export const TransactionDetail = () => {
+export const TransactionDetail = ({ transactions }) => {
+  const [transaction, setTransaction] = useState([]);
+  const params = useParams();
   const navigate = useNavigate();
+
+  console.log({ transactions });
+
+  // useEffect(() => {
+  //   if (!transactions) {
+  //     navigate(`/${PRIVATE_ROUTES.private}`, { replace: true });
+  //   }
+  //   const transactionSelected = transactions?.filter(
+  //     (transaction) => transaction.id === params.slug
+  //   );
+  //   setTransaction(transactionSelected);
+  // }, []);
 
   const handleBack = () => {
     navigate(`/${PRIVATE_ROUTES.private}`, { replace: true });

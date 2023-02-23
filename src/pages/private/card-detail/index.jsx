@@ -30,6 +30,7 @@ export const CardDetail = () => {
     navigate(`/${PRIVATE_ROUTES.private}`, { replace: true });
   };
 
+  console.log(cards[0]?.transactions);
   return (
     <div
       className={`${styles.dashboard} sm:flex-row sm:h-screen sm:justify-around sm:items-center`}>
@@ -48,14 +49,20 @@ export const CardDetail = () => {
         className={`${styles.transactions} sm:mt-0 sm:w-1/3 sm:justify-between`}>
         <h3 className={styles.transactionsTitle}>Last transactions</h3>
         {/* item */}
-        {cards[0]?.transactions.map(({ name, date, total }, index) => (
-          <Link
-            replace
-            key={index}
-            to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.transactionDetail}/{index}`}>
-            <Transaction date={date} title={name} total={total} />
-          </Link>
-        ))}
+        {cards &&
+          cards[0]?.transactions.map(({ name, date, total }, index) => (
+            <Link
+              replace
+              key={index}
+              to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.transactionDetail}/${index}`}>
+              <Transaction
+                transactions={cards[0]?.transactions}
+                date={date}
+                title={name}
+                total={total}
+              />
+            </Link>
+          ))}
         <span className={styles.seeMore}>See more</span>
       </div>
       <div className={`${styles.backHome}`}>
