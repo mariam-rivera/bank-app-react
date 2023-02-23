@@ -7,12 +7,18 @@ import { useState, useEffect } from 'react';
 import * as styles from './styles';
 import { cardService } from '../../../services/cards/cards-service';
 import { cardAdapter } from '../../../adapters/cards/cards-adapter';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
+import {
+  useTransactionStore,
+  setGlobalTransaction,
+} from '../../../stores/transaction-store';
 
 export const CardDetail = () => {
   const [cards, setCards] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const setTransaction = useTransactionStore(setGlobalTransaction);
 
   useEffect(() => {
     const getData = async () => {
@@ -24,6 +30,11 @@ export const CardDetail = () => {
       setCards(cardSelected);
     };
     getData();
+  }, []);
+
+  useEffect(() => {
+    console.log('useeefect', cards);
+    // setTransaction(cards[0]?.transactions);
   }, []);
 
   const handleBack = () => {
@@ -54,13 +65,10 @@ export const CardDetail = () => {
             <Link
               replace
               key={index}
-              to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.transactionDetail}/${index}`}>
-              <Transaction
-                transactions={cards[0]?.transactions}
-                date={date}
-                title={name}
-                total={total}
-              />
+              to={`/${PRIVATE_ROUTES.private}/${
+                PRIVATE_ROUTES.transactionDetail
+              }/${index + 1}`}>
+              <Transaction date={date} title={name} total={total} />
             </Link>
           ))}
         <span className={styles.seeMore}>See more</span>
