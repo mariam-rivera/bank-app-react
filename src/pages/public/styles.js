@@ -1,3 +1,4 @@
+import { cursor, lineHeight } from 'tailwindcss-classnames';
 import classnames, {
     alignItems,
     borderRadius,
@@ -84,6 +85,7 @@ import classnames, {
     fontWeight('font-normal'),
     margin('mb-5'),
     textColor('text-white'),
+    cursor('cursor-pointer')
   )
 
   export const register = classnames(
@@ -91,4 +93,5 @@ import classnames, {
     fontWeight('font-semibold'),
     margin('mt-5', 'mb-5'),
     textColor('text-amber-400'),
+    cursor('cursor-pointer')
   )

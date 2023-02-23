@@ -1,4 +1,3 @@
-import { fontWeight } from 'tailwindcss-classnames';
 import classnames, {
   alignItems,
   borderRadius,
@@ -13,6 +12,7 @@ import classnames, {
   backgroundColor,
   padding,
   cursor,
+  fontWeight,
 } from '../../../tailwind-classnames';
 
 export const cardItem = classnames(
@@ -47,5 +47,5 @@ export const totalBalance = classnames(
 export const balanceSpan = classnames(
   fontSize('text-xs'),
   fontWeight('font-bold'),
-  textColor('text-indigo-300')
+  textColor('text-white')
 );

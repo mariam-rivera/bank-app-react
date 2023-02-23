@@ -13,16 +13,14 @@ export const PrivateRoutes = () => {
         <Route path="/" element={<Navigate to={PRIVATE_ROUTES.dashboard} />} />
         <Route path={PRIVATE_ROUTES.dashboard} element={<Dashboard />} />
         <Route path={PRIVATE_ROUTES.about} element={<About />} />
-        <Route path={PRIVATE_ROUTES.cardDetail} element={<CardDetail />} />
         <Route
-          path={PRIVATE_ROUTES.transactionDetail}
-          element={<TransactionDetail />}
-        />
-
-        {/* <Route
           path={`${PRIVATE_ROUTES.cardDetail}${PRIVATE_ROUTES.slug}`}
           element={<CardDetail />}
-        /> */}
+        />
+        <Route
+          path={`${PRIVATE_ROUTES.transactionDetail}${PRIVATE_ROUTES.slug}`}
+          element={<TransactionDetail />}
+        />
       </RouteNotFound>
     </>
   );

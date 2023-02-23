@@ -2,7 +2,6 @@ import classnames, {
   alignItems,
   borderRadius,
   display,
-  flexDirection,
   fontSize,
   height,
   justifyContent,
@@ -12,7 +11,6 @@ import classnames, {
   backgroundColor,
   padding,
   cursor,
-  fontWeight,
 } from '../../../tailwind-classnames';
 
 export const transactionItem = classnames(

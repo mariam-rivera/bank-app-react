@@ -1,11 +1,7 @@
 import classnames, {
-  alignItems,
   borderRadius,
-  display,
-  flexDirection,
   fontSize,
   height,
-  justifyContent,
   margin,
   textColor,
   width,

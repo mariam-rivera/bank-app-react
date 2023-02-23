@@ -4,7 +4,6 @@ import { KEY_INIT_SESSION_SESSION_STORAGE } from '../../constants/session-storag
 import { getItemSessionStorage } from '../../utils/session-storage/session-storage';
 
 const getItem = getItemSessionStorage(KEY_INIT_SESSION_SESSION_STORAGE);
-console.log(getItem);
 const initialState = {
   session: {
     okay: getItem ? getItem.okay : false,

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import menuImg from '../../../assets/bank-images/menu.png';
 import transferImg from '../../../assets/bank-images/transfer.png';
 import opportunitiesImg from '../../../assets/bank-images/opportunities.png';
@@ -8,10 +9,25 @@ import { Task } from '../../../atoms/task/Task';
 import { Menu } from '../../../atoms/menu/Menu';
 import { Card } from '../../../atoms/card/Card';
 import * as styles from './styles';
+import { cardService } from '../../../services/cards/cards-service';
+import { cardAdapter } from '../../../adapters/cards/cards-adapter';
+import { Link } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
 
 export const Dashboard = () => {
+  const [cards, setCards] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const cards = await cardService();
+      const cardsTransform = cardAdapter(cards);
+      setCards(cardsTransform);
+    };
+    getData();
+  }, []);
+
   return (
-    <div className={`${styles.dashboard} sm:justify-between sm:py-8 sm:px-10`}>
+    <div
+      className={`${styles.dashboard} sm:h-screen sm:justify-between sm:py-10 sm:px-10`}>
       {/* top */}
       <div className={`${styles.menu}`}>
         <p className={`${styles.menuTitle} sm:text-lg`}>Hi, Mariam!</p>
@@ -26,27 +42,23 @@ export const Dashboard = () => {
         <Task image={moreImg} title="More" />
       </div>
       {/* cards */}
-      <div className={`${styles.cards} sm:w-1/3 sm:ml-2`}>
-        <h3 className={`${styles.cardsTitle}`}>Cards</h3>
+      <div
+        className={`${styles.cards} sm:w-full sm:flex-row sm:justify-around sm:items-center`}>
+        <h3 className={`${styles.cardsTitle} sm:text-xl`}>Cards</h3>
         {/* card item */}
-        <Card
-          title="Debit card"
-          account="2408"
-          balance={125000}
-          cardImg={cardImg}
-        />
-        <Card
-          title="Credit card"
-          account="9008"
-          balance={9000}
-          cardImg={cardImg}
-        />
-        <Card
-          title="Debit card"
-          account="7808"
-          balance={3400}
-          cardImg={cardImg}
-        />
+        {cards.map((card) => (
+          <Link
+            replace
+            key={card.id}
+            to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.cardDetail}/${card.id}`}>
+            <Card
+              cardImg={cardImg}
+              title={card.title}
+              balance={card.balance}
+              account={card.account}
+            />
+          </Link>
+        ))}
       </div>
     </div>
   );

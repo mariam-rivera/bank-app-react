@@ -19,7 +19,7 @@ export const dashboard = classnames(
   display('flex'),
   flexDirection('flex-col'),
   padding('py-5', 'px-3'),
-  width('w-screen'),
+  width('w-full'),
   height('h-full'),
   backgroundColor('bg-slate-900')
 );

@@ -1,4 +1,3 @@
-import { alignSelf } from 'tailwindcss-classnames';
 import classnames, {
   alignItems,
   borderRadius,
@@ -14,13 +13,14 @@ import classnames, {
   padding,
   cursor,
   fontWeight,
+  alignSelf,
 } from '../../../../tailwind-classnames';
 
 export const dashboard = classnames(
   display('flex'),
   flexDirection('flex-col'),
   padding('py-5', 'px-3'),
-  width('w-screen'),
+  width('w-full'),
   height('h-full'),
   backgroundColor('bg-slate-900')
 );
@@ -65,8 +65,8 @@ export const backHome = classnames(
 
 export const seeMore = classnames(
   fontSize('text-sm'),
-  textColor('text-indigo-300'),
-  fontWeight('font-bold'),
+  textColor('text-white'),
+  fontWeight('font-normal'),
   alignSelf('self-center'),
   margin('mt-3'),
   cursor('cursor-pointer')
