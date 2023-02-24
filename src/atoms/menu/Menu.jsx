@@ -23,10 +23,12 @@ export const Menu = () => {
   };
 
   return (
-    <ul className={`${styles.menuItems} hidden sm:flex`}>
+    <ul className={`${styles.menuItems} hidden md:flex`}>
       <li className={styles.menuItem}>Profile</li>
       <li className={styles.menuItem}>Settings</li>
-      <li className={styles.menuItem}>Promotions</li>
+      <Link to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.promotions}`}>
+        <li className={styles.menuItem}>Promotions</li>
+      </Link>
       <li className={styles.menuItem}>Clarifications</li>
       <Link to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.about}`}>
         <li className={styles.menuItem}>About</li>

@@ -49,9 +49,16 @@ export const description = classnames(
   fontWeight('font-normal')
 );
 
+export const detailsSpan = classnames(
+  fontSize('text-[14px]'),
+  fontWeight('font-bold'),
+  textColor('text-blue-200'),
+  margin('mt-3')
+);
+
 export const details = classnames(
   display('flex'),
-  alignItems('items-center'),
+  alignItems('items-start'),
   flexDirection('flex-col'),
   backgroundColor('bg-slate-800'),
   padding('p-5'),

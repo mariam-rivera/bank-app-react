@@ -4,7 +4,7 @@ export const Input = ({ title, type, onChange }) => {
   return (
     <input
       type={type}
-      className={`${styles.field} sm:w-[350px]`}
+      className={`${styles.field} md:w-[350px]`}
       placeholder={title}
       onChange={onChange}
     />

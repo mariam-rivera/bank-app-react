@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { cardService } from '../../../services/cards/cards-service';
+import { cardAdapter } from '../../../adapters/cards/cards-adapter';
+import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
+import { Task } from '../../../atoms/task/Task';
+import { Menu } from '../../../atoms/menu/Menu';
+import { Card } from '../../../atoms/card/Card';
+import { SideBar } from '../../../atoms/sidebar/SideBar';
 import menuImg from '../../../assets/bank-images/menu.png';
 import transferImg from '../../../assets/bank-images/transfer.png';
 import opportunitiesImg from '../../../assets/bank-images/opportunities.png';
 import withdrawImg from '../../../assets/bank-images/money-withdraw.png';
 import moreImg from '../../../assets/bank-images/more.png';
 import cardImg from '../../../assets/bank-images/card.png';
-import { Task } from '../../../atoms/task/Task';
-import { Menu } from '../../../atoms/menu/Menu';
-import { Card } from '../../../atoms/card/Card';
 import * as styles from './styles';
-import { cardService } from '../../../services/cards/cards-service';
-import { cardAdapter } from '../../../adapters/cards/cards-adapter';
-import { Link } from 'react-router-dom';
-import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
 
 export const Dashboard = () => {
   const [cards, setCards] = useState([]);
@@ -32,18 +33,18 @@ export const Dashboard = () => {
 
   return (
     <div
-      className={`${styles.dashboard} sm:h-screen sm:justify-between sm:py-10 sm:px-10`}>
+      className={`${styles.dashboard} md:h-screen md:justify-between md:py-10 md:px-10`}>
       {/* top */}
       <div className={`${styles.menu}`}>
-        <p className={`${styles.menuTitle} sm:text-lg`}>Hi, Mariam!</p>
-        {isToggle ? <p className="md:hidden">test</p> : null}
-        <div className="border-2 border-red-700 md:hidden" onClick={toggleMenu}>
-          <img src={menuImg} className={`${styles.menuImg} sm:hidden`} />
+        <p className={`${styles.menuTitle} md:text-lg`}>Hi, Mariam!</p>
+        {isToggle ? <SideBar className="md:hidden" /> : null}
+        <div className="md:hidden" onClick={toggleMenu}>
+          <img src={menuImg} className={`${styles.menuImg} md:hidden`} />
         </div>
         <Menu />
       </div>
       {/* tasks */}
-      <div className={`${styles.tasks} sm:h-[150px] sm:mt-8`}>
+      <div className={`${styles.tasks} md:h-[150px] md:mt-8`}>
         <Task image={transferImg} title="Transfer" />
         <Task image={opportunitiesImg} title="Opportunities" />
         <Task image={withdrawImg} title="Withdraw" />
@@ -51,8 +52,8 @@ export const Dashboard = () => {
       </div>
       {/* cards */}
       <div
-        className={`${styles.cards} sm:w-full sm:flex-row sm:justify-around sm:items-center`}>
-        <h3 className={`${styles.cardsTitle} sm:text-xl`}>Cards</h3>
+        className={`${styles.cards} md:bg-blue-900 md:w-full md:flex-row md:justify-around md:items-center`}>
+        <h3 className={`${styles.cardsTitle} md:text-xl`}>Cards</h3>
         {/* card item */}
         {cards.map((card) => (
           <Link

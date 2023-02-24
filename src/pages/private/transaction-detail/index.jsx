@@ -1,14 +1,15 @@
-import { Button } from '../../../atoms/button/Button';
-import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
-import unknownImg from '../../../assets/bank-images/unknown.png';
-import shareImg from '../../../assets/bank-images/share.png';
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import * as styles from './styles';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   useTransactionStore,
   getGlobalTransaction,
 } from '../../../stores/transaction-store';
+import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
+import { Button } from '../../../atoms/button/Button';
+import unknownImg from '../../../assets/bank-images/unknown.png';
+import shareImg from '../../../assets/bank-images/share.png';
+import * as styles from './styles';
+
 export const TransactionDetail = () => {
   const [transaction, setTransaction] = useState([]);
   const params = useParams();
@@ -30,10 +31,10 @@ export const TransactionDetail = () => {
   };
 
   return (
-    <div className={`${styles.transaction} sm:py-10 sm:px-20`}>
+    <div className={`${styles.transaction} md:py-10 md:px-20`}>
       <div className={`${styles.topInfo}`}>
         <p className={`${styles.description}`}>{transaction[0]?.name}</p>
-        <span className={`${styles.total}`}>$ {transaction[0]?.total} </span>
+        <span className={`${styles.total}`}>- $ {transaction[0]?.total} </span>
         <p className={`${styles.description}`}>{transaction[0]?.date}</p>
       </div>
       <div className={styles.actions}>
@@ -47,7 +48,12 @@ export const TransactionDetail = () => {
         </div>
       </div>
       <div className={`${styles.details}`}>
-        <p>all description here</p>
+        <span className={`${styles.detailsSpan}`}>Description</span>
+        <p className={`${styles.description}`}>{transaction[0]?.name}</p>
+        <span className={`${styles.detailsSpan}`}>Transaction date</span>
+        <p className={`${styles.description}`}>{transaction[0]?.date}</p>
+        <span className={`${styles.detailsSpan}`}>Total</span>
+        <p className={`${styles.description}`}>{transaction[0]?.total}</p>
       </div>
       <Button onClick={handleBack} title="Back home" />
     </div>

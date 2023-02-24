@@ -1,14 +1,11 @@
-import { alignItems, display, justifyContent } from 'tailwindcss-classnames';
 import classnames, {
-  borderRadius,
   fontSize,
-  height,
   margin,
   textColor,
   width,
-  backgroundColor,
-  fontWeight,
-  padding,
+  alignItems,
+  display,
+  justifyContent,
 } from '../../../tailwind-classnames';
 
 export const alert = classnames(

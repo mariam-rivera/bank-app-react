@@ -5,6 +5,7 @@ import { About } from './about';
 import { Dashboard } from './dashboard';
 import { CardDetail } from './card-detail/index';
 import { TransactionDetail } from './transaction-detail';
+import { Promotions } from './promotions';
 
 export const PrivateRoutes = () => {
   return (
@@ -13,6 +14,8 @@ export const PrivateRoutes = () => {
         <Route path="/" element={<Navigate to={PRIVATE_ROUTES.dashboard} />} />
         <Route path={PRIVATE_ROUTES.dashboard} element={<Dashboard />} />
         <Route path={PRIVATE_ROUTES.about} element={<About />} />
+        <Route path={PRIVATE_ROUTES.promotions} element={<Promotions />} />
+
         <Route
           path={`${PRIVATE_ROUTES.cardDetail}${PRIVATE_ROUTES.slug}`}
           element={<CardDetail />}

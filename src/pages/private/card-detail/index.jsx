@@ -1,13 +1,14 @@
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { cardService } from '../../../services/cards/cards-service';
+import { cardAdapter } from '../../../adapters/cards/cards-adapter';
+import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
 import { Card } from '../../../atoms/card/Card';
 import { Button } from '../../../atoms/button/Button';
 import { Transaction } from '../../../atoms/transaction/Transaction';
-import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
 import cardImg from '../../../assets/bank-images/card.png';
-import { useState, useEffect } from 'react';
 import * as styles from './styles';
-import { cardService } from '../../../services/cards/cards-service';
-import { cardAdapter } from '../../../adapters/cards/cards-adapter';
-import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
+
 import {
   useTransactionStore,
   setGlobalTransaction,
@@ -17,7 +18,6 @@ export const CardDetail = () => {
   const [cards, setCards] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   const setTransaction = useTransactionStore(setGlobalTransaction);
 
   useEffect(() => {
@@ -42,10 +42,10 @@ export const CardDetail = () => {
 
   return (
     <div
-      className={`${styles.dashboard} sm:flex-row sm:h-screen sm:justify-around sm:items-center`}>
+      className={`${styles.dashboard} md:flex-row md:h-screen md:justify-around md:items-center`}>
       {/* card */}
       <div
-        className={`${styles.primaryCard} sm:w-1/3 sm:h-1/2 sm:items-center sm:justify-center`}>
+        className={`${styles.primaryCard} md:w-1/3 md:h-1/2 md:items-center md:justify-center`}>
         <Card
           title={cards[0]?.title}
           account={cards[0]?.account}
@@ -55,7 +55,7 @@ export const CardDetail = () => {
       </div>
       {/* transactions */}
       <div
-        className={`${styles.transactions} sm:mt-0 sm:w-1/3 sm:justify-between`}>
+        className={`${styles.transactions} md:mt-0 md:w-1/3 md:justify-between`}>
         <h3 className={styles.transactionsTitle}>Last transactions</h3>
         {/* item */}
         {cards &&
