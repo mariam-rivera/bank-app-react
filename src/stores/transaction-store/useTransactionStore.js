@@ -2,9 +2,7 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 const initialState = {
-  transaction: {
-    transactions: [],
-  },
+  transactions: [],
 };
 
 const createTransactionStore = (set) => ({

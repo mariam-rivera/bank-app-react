@@ -5,23 +5,25 @@ import shareImg from '../../../assets/bank-images/share.png';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import * as styles from './styles';
-
-export const TransactionDetail = ({ transactions }) => {
+import {
+  useTransactionStore,
+  getGlobalTransaction,
+} from '../../../stores/transaction-store';
+export const TransactionDetail = () => {
   const [transaction, setTransaction] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
+  const transactions = useTransactionStore(getGlobalTransaction);
 
-  console.log({ transactions });
-
-  // useEffect(() => {
-  //   if (!transactions) {
-  //     navigate(`/${PRIVATE_ROUTES.private}`, { replace: true });
-  //   }
-  //   const transactionSelected = transactions?.filter(
-  //     (transaction) => transaction.id === params.slug
-  //   );
-  //   setTransaction(transactionSelected);
-  // }, []);
+  useEffect(() => {
+    if (transactions.length === 0) {
+      navigate(`/${PRIVATE_ROUTES.private}`, { replace: true });
+    }
+    const transactionSelected = transactions?.filter(
+      (transaction) => transaction.name === params.slug
+    );
+    setTransaction(transactionSelected);
+  }, []);
 
   const handleBack = () => {
     navigate(`/${PRIVATE_ROUTES.private}`, { replace: true });
@@ -30,9 +32,9 @@ export const TransactionDetail = ({ transactions }) => {
   return (
     <div className={`${styles.transaction} sm:py-10 sm:px-20`}>
       <div className={`${styles.topInfo}`}>
-        <p className={`${styles.description}`}>Some stuff</p>
-        <span className={`${styles.total}`}>$ 112900</span>
-        <p className={`${styles.description}`}>23/02/2023</p>
+        <p className={`${styles.description}`}>{transaction[0]?.name}</p>
+        <span className={`${styles.total}`}>$ {transaction[0]?.total} </span>
+        <p className={`${styles.description}`}>{transaction[0]?.date}</p>
       </div>
       <div className={styles.actions}>
         <div className={`${styles.imgContainer}`}>

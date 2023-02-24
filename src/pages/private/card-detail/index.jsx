@@ -33,15 +33,13 @@ export const CardDetail = () => {
   }, []);
 
   useEffect(() => {
-    console.log('useeefect', cards);
-    // setTransaction(cards[0]?.transactions);
-  }, []);
+    setTransaction(cards[0]?.transactions);
+  }, [cards[0]?.account]);
 
   const handleBack = () => {
     navigate(`/${PRIVATE_ROUTES.private}`, { replace: true });
   };
 
-  console.log(cards[0]?.transactions);
   return (
     <div
       className={`${styles.dashboard} sm:flex-row sm:h-screen sm:justify-around sm:items-center`}>
@@ -65,9 +63,7 @@ export const CardDetail = () => {
             <Link
               replace
               key={index}
-              to={`/${PRIVATE_ROUTES.private}/${
-                PRIVATE_ROUTES.transactionDetail
-              }/${index + 1}`}>
+              to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.transactionDetail}/${name}`}>
               <Transaction date={date} title={name} total={total} />
             </Link>
           ))}

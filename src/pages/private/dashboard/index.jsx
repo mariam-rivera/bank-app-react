@@ -16,6 +16,7 @@ import { PRIVATE_ROUTES } from '../../../constants/routes/routes-constants';
 
 export const Dashboard = () => {
   const [cards, setCards] = useState([]);
+  const [isToggle, setIsToggle] = useState(false);
   useEffect(() => {
     const getData = async () => {
       const cards = await cardService();
@@ -25,13 +26,20 @@ export const Dashboard = () => {
     getData();
   }, []);
 
+  const toggleMenu = () => {
+    setIsToggle((state) => !state);
+  };
+
   return (
     <div
       className={`${styles.dashboard} sm:h-screen sm:justify-between sm:py-10 sm:px-10`}>
       {/* top */}
       <div className={`${styles.menu}`}>
         <p className={`${styles.menuTitle} sm:text-lg`}>Hi, Mariam!</p>
-        <img src={menuImg} className={`${styles.menuImg} sm:hidden`} />
+        {isToggle ? <p className="md:hidden">test</p> : null}
+        <div className="border-2 border-red-700 md:hidden" onClick={toggleMenu}>
+          <img src={menuImg} className={`${styles.menuImg} sm:hidden`} />
+        </div>
         <Menu />
       </div>
       {/* tasks */}

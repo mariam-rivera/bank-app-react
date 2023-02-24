@@ -1,6 +1,6 @@
 import * as styles from './styles';
 import { signOut, getAuth } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   PUBLIC_ROUTES,
   PRIVATE_ROUTES,
@@ -28,7 +28,9 @@ export const Menu = () => {
       <li className={styles.menuItem}>Settings</li>
       <li className={styles.menuItem}>Promotions</li>
       <li className={styles.menuItem}>Clarifications</li>
-      <li className={styles.menuItem}>About</li>
+      <Link to={`/${PRIVATE_ROUTES.private}/${PRIVATE_ROUTES.about}`}>
+        <li className={styles.menuItem}>About</li>
+      </Link>
       <li className={styles.menuItem} onClick={handleLogoutSession}>
         Logout
       </li>
